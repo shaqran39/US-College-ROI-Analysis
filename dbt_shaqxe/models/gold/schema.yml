@@ -1,0 +1,153 @@
+version: 2
+
+models:
+  - name: roi_by_major_category
+    description: Average ROI, cost, and outcomes grouped by major category.
+    columns:
+      - name: major_category
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_by_institution_tier
+    description: Average ROI, cost, and selectivity grouped by institution tier.
+    columns:
+      - name: institution_tier
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_by_debt_bucket
+    description: ROI outcomes bucketed by student debt level.
+    columns:
+      - name: debt_bucket
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_stem_vs_nonstem
+    description: ROI, cost, and internship rate comparing STEM vs non-STEM majors.
+    columns:
+      - name: stem_flag
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_by_major
+    description: ROI outcomes ranked by individual major.
+    columns:
+      - name: major
+        tests:
+          - unique
+          - not_null
+      - name: roi_rank
+        tests:
+          - not_null
+
+  - name: roi_by_internship
+    description: ROI comparison by internship status within each major category.
+    columns:
+      - name: major_category
+        tests:
+          - not_null
+      - name: had_internship
+        tests:
+          - not_null
+
+  - name: roi_by_completion
+    description: ROI and cost outcomes by on-time completion status.
+    columns:
+      - name: completed_on_time
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_by_region
+    description: ROI, cost, and debt grouped by US region.
+    columns:
+      - name: region
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_by_gpa_bucket
+    description: ROI outcomes bucketed by GPA range.
+    columns:
+      - name: gpa_bucket
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_by_selectivity_bucket
+    description: ROI and cost bucketed by institution selectivity percentile.
+    columns:
+      - name: selectivity_bucket
+        tests:
+          - unique
+          - not_null
+
+  - name: roi_major_category_by_tier
+    description: ROI cross-tabulated by major category and institution tier.
+    columns:
+      - name: major_category
+        tests:
+          - not_null
+      - name: institution_tier
+        tests:
+          - not_null
+
+  - name: debt_to_earnings_ratio
+    description: Average debt relative to earnings premium, by major.
+    columns:
+      - name: major
+        tests:
+          - unique
+          - not_null
+
+  - name: major_popularity
+    description: Graduate counts and share of total by major.
+    columns:
+      - name: major
+        tests:
+          - unique
+          - not_null
+
+  - name: institution_tier_distribution
+    description: Graduate counts and share of total by institution tier.
+    columns:
+      - name: institution_tier
+        tests:
+          - unique
+          - not_null
+
+  - name: region_roi_ranking
+    description: Regions ranked by average net ROI.
+    columns:
+      - name: region
+        tests:
+          - unique
+          - not_null
+
+  - name: region_hs_baseline
+    description: Regions ranked by average high-school-baseline earnings.
+    columns:
+      - name: region
+        tests:
+          - unique
+          - not_null
+
+  - name: completion_rate_by_tier
+    description: On-time completion rate by institution tier.
+    columns:
+      - name: institution_tier
+        tests:
+          - unique
+          - not_null
+
+  - name: region_cost_comparison
+    description: Regions ranked by average net cost of study.
+    columns:
+      - name: region
+        tests:
+          - unique
+          - not_null

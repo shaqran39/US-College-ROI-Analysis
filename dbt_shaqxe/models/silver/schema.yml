@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_college_major_roi
+    description: Cleaned and typed college major ROI data, deduplicated on grad_id.
+    columns:
+      - name: grad_id
+        description: Unique graduate identifier.
+        tests:
+          - unique
+          - not_null
+      - name: major
+        tests:
+          - not_null
+      - name: major_category
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['stem', 'health', 'business', 'social_science', 'education', 'humanities', 'arts']
+      - name: institution_tier
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['ivy_elite', 'top_public', 'mid_tier', 'regional', 'for_profit']
+      - name: region
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['northeast', 'south', 'midwest', 'west']
+      - name: gpa
+        tests:
+          - not_null
+      - name: net_cost_usd
+        tests:
+          - not_null
+      - name: net_roi_usd
+        tests:
+          - not_null

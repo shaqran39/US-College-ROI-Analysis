@@ -1,0 +1,5 @@
+airflow/logs/
+airflow/.env
+__pycache__/
+*.pyc
+Thumbs.db
